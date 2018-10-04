@@ -2,7 +2,7 @@ body {
 	font-family: Roboto;
 	background: #FC466B;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #2BC0E4, #EAECC6);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2BC0E4, #EAECC6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, rgb(25, 224, 181), rgb(98, 41, 185)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 h1 {
 	background-color: #2980b9;
@@ -71,6 +71,33 @@ li:nth-child(2n){
 	text-decoration: line-through;
 	
 }
+nav.nav-bar-bottom{
+	position: fixed;
+	bottom: 0;
+	left:0;
+	width: 100%;
+	height: 40px;
+	background: #FC466B;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #2BC0E4, #EAECC6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgb(134, 41, 185), rgb(25, 224, 181)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+div.leftSide{
+	text-align: left;
+}
+div.leftSide span{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+div.rightSide{
+	text-align: right;
+}
+div.rightSide a{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
 
 
 
