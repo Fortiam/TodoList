@@ -1,0 +1,1 @@
+Just a simple list html page, nothing fancy.
