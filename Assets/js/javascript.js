@@ -1,12 +1,14 @@
 // check out todos by clickie
 $("ul").on("click", "li", function(){
-	$(this).toggleClass("completed")});
+	$(this).toggleClass("completed")
+});
 // click on x to delete
 $("ul").on("click", "span", function(event){
 	$(this).parent().fadeOut(500, function(){
-		$(this).remove()})
+		$(this).remove()
+	})
 	event.stopPropagation();
-})
+});
 
 // add listener to input[text]
 $("input[type='text']").keypress(function(event){
@@ -16,9 +18,8 @@ $("input[type='text']").keypress(function(event){
 		$("ul").append("<li><span><i class='fas fa-trash'></i></span> " + todoText + "</li>");
 		 $(this).val(""); // blanks input for next user input
 	}
-	
-})
-
+});
+//show or hide the add new list input bar
 $("#fontTrash").click(function(){
 	$("input[type='text']").fadeToggle();
 });
