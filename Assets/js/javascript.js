@@ -15,13 +15,27 @@ $("ul").on("click", "span", function(event){
 	renderList();
 });
 
-// add listener to input[text]
-$("input[type='text']").keypress(function(event){
+// add listener to input[text] class add
+$(".add").keypress(function(event){
 	if(event.which === 13 ){				//code 13 for enter
-		var todoText =	$(this).val();
+		let todoText = $(this).val();
 		//append a new li to the ul and then apply todoText to it
 		STORE.push({showHtml: `<li><span><i class='fas fa-trash'></i></span>${todoText}</li>`, name: `${todoText}`, deleteMe: false});
 		$(this).val(""); // blanks input for next user input
+		renderList();
+	}
+});
+
+$(".del").keypress(function(event){
+	if(event.which === 13 ){				//code 13 for enter
+		let deleteText = $(this).val();
+		for(let i = 0; i<STORE.length; i++){
+			if(STORE[i].name === deleteText){
+				STORE[i].deleteMe = true;
+			}
+		}
+		$(this).val(""); // blanks input for next user input
+		removeFromStore();
 		renderList();
 	}
 });
