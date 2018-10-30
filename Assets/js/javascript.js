@@ -3,7 +3,7 @@ let STORE = [];
 
 // check out todos by clickie
 $("ul").on("click", "li", function(){
-	$(this).toggleClass("completed")
+	$(this).toggleClass("completed");
 });
 // click on x to delete
 $("ul").on("click", "span", function(event){					//span is the (trash icon) html child element on the li
@@ -27,9 +27,9 @@ $(".add").keypress(function(event){
 	}
 });
 
-$(".del").keypress(function(event){
+$(".deleteAll").keypress(function(event){
 	if(event.which === 13 ){				//code 13 for enter
-		let deleteText = $(this).val();		    //sets a variable to what the user has typed into Remove Todo Input-box
+		let deleteText = $(this).val();		    //sets a variable to what the user has typed into Remove All Todos Input-box
 		for(let i = 0; i<STORE.length; i++){
 			if(STORE[i].name === deleteText){	//finds all the store items that match
 				STORE[i].deleteMe = true;		//flags matches to be removed
@@ -39,6 +39,22 @@ $(".del").keypress(function(event){
 		removeFromStore();
 	}
 });
+
+
+$(".deleteOne").keypress(function(event){
+	if(event.which === 13 ){				//code 13 for enter
+		let deleteText = $(this).val();		    //sets a variable to what the user has typed into Remove One Todo Input-box
+		for(let i = 0; i<STORE.length; i++){
+			if(STORE[i].name === deleteText){	//finds first store item that matches
+				STORE[i].deleteMe = true;
+				break;							//flags match to be removed
+			}
+		}
+		$(this).val(""); // blanks input for next user input
+		removeFromStore();
+	}
+});
+
 
 //show or hide the add new list input bar
 $("#fontTrash").click(function(){
@@ -54,6 +70,19 @@ function removeFromStore(){
 	STORE = STORE.filter(element => (element.deleteMe === false));
 	renderList();
 }
+
+// function removeJustOne(){
+// 	let myHelper = false;
+// 	let someVar = STORE.find(function(element){
+// 		if(!myHelper && element.deleteMe === true){
+// 			myHelper = true;
+// 			return element;
+// 		}
+// 	});
+// 	console.log(someVar);
+// 	STORE = STORE.map(element=> element.deleteMe === false);
+// 	renderList();
+// }
 
 function init(){
 	renderList();
